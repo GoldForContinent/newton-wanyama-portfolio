@@ -4,12 +4,12 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Newton's research on exchange rate dynamics (2002–2024) demonstrated exceptional analytical maturity. His ability to connect econometric theory with Kenya's real economic story placed him among our top students.",
+    quote: "Newton consistently demonstrates exceptional analytical abilities and a deep understanding of complex economic concepts. His research on exchange rate dynamics showed remarkable sophistication for an undergraduate student. He has the rare combination of technical prowess and analytical thinking that will serve him well in any finance role.",
     name: "Dr. Jane Mwangi",
     role: "Head of Economics, Kabarak University",
   },
   {
-    quote: "During his attachment, Newton brought fresh analytical perspective. He applied time series methods to our member data that even some experienced analysts hadn't considered.",
+    quote: "During his attachment, Newton brought a fresh analytical perspective. His ability to apply econometric methods to real financial data impressed our team. He demonstrated intellectual curiosity, professional maturity, and a genuine passion for finance that is truly refreshing.",
     name: "Peter Kipchumba",
     role: "Finance Manager, Kabarak SACCO",
   },
@@ -23,6 +23,16 @@ const Testimonials = () => {
   return (
     <section className="py-24 relative">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">Testimonials</h2>
+          <p className="text-muted-foreground">What professors and industry professionals say</p>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
