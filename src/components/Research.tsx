@@ -16,6 +16,7 @@ const fullData = [
   { year: "2020", exchangeRate: 115.2, gdp: -0.3, inflation: 5.4, interestRate: 11.5 },
   { year: "2022", exchangeRate: 132.4, gdp: 4.9, inflation: 7.6, interestRate: 12.5 },
   { year: "2024", exchangeRate: 145.2, gdp: 5.4, inflation: 6.2, interestRate: 13.0 },
+  { year: "2025", exchangeRate: 129.85, gdp: 5.6, inflation: 5.8, interestRate: 12.8 },
 ];
 
 const seriesConfig = [
@@ -51,7 +52,7 @@ const Research = () => {
           <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">
             Economic Research Project
           </h2>
-          <p className="text-muted-foreground">Academic Research · Macroeconomic Analysis · Econometric Modeling</p>
+          <p className="text-muted-foreground">Academic Research | Macroeconomic Analysis | Econometric Modeling</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8">
@@ -123,10 +124,13 @@ const Research = () => {
             <div className="glass-card p-5">
               <h4 className="font-heading font-semibold text-sm mb-3">Research Summary</h4>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                <span className="text-foreground font-medium">Challenge:</span> Investigate the relationship between exchange rate fluctuations and economic growth in Kenya over a 22-year period, examining how currency volatility impacts key macroeconomic indicators including interest rates, inflation, and net exports.
+                <span className="text-foreground font-medium">Challenge:</span> Investigate the relationship between exchange rate fluctuations and economic growth in Kenya over a 23-year period, examining how currency volatility impacts key macroeconomic indicators including interest rates, inflation, and net exports.
+              </p>
+              <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                <span className="text-foreground font-medium">2025 Analysis:</span> In 2025, the Kenyan Shilling (KES) showed relative stability against the US Dollar (USD), averaging around 129–130 KES per USD throughout the year. The exchange rate saw slight fluctuations, with rates noted around 129.56 KES in mid-January 2025 and increasing to 130.15 KES in November 2025.
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                <span className="text-foreground font-medium">Result:</span> Successfully completed comprehensive econometric research analyzing two decades of Kenyan economic data, providing empirical evidence on the causal relationships between exchange rate dynamics and GDP growth.
+                <span className="text-foreground font-medium">Result:</span> Successfully completed comprehensive econometric research analyzing over two decades of Kenyan economic data, providing empirical evidence on the causal relationships between exchange rate dynamics and GDP growth, including the remarkable stabilization observed in 2025.
               </p>
             </div>
 

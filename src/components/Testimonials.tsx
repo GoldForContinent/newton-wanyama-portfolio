@@ -4,14 +4,14 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Newton consistently demonstrates exceptional analytical abilities and a deep understanding of complex economic concepts. His research on exchange rate dynamics showed remarkable sophistication for an undergraduate student. He has the rare combination of technical prowess and analytical thinking that will serve him well in any finance role.",
-    name: "Dr. Jane Mwangi",
-    role: "Head of Economics, Kabarak University",
+    quote: "Newton demonstrates exceptional analytical abilities and a profound understanding of complex economic concepts. His research on exchange rate dynamics showed remarkable sophistication for an undergraduate student. He possesses the rare combination of technical prowess and analytical thinking that will serve him well in any finance role.",
+    name: "Professor Kibati",
+    role: "Dean of School of Business, Kabarak University",
   },
   {
-    quote: "During his attachment, Newton brought a fresh analytical perspective. His ability to apply econometric methods to real financial data impressed our team. He demonstrated intellectual curiosity, professional maturity, and a genuine passion for finance that is truly refreshing.",
-    name: "Peter Kipchumba",
-    role: "Finance Manager, Kabarak SACCO",
+    quote: "Newton brings a fresh analytical perspective to financial analysis. His ability to apply econometric methods to real financial data impressed our team. He demonstrated intellectual curiosity, professional maturity, and a genuine passion for finance that is truly refreshing.",
+    name: "Geoffrey Kisabit",
+    role: "C.E.O, Kabarak SACCO",
   },
 ];
 

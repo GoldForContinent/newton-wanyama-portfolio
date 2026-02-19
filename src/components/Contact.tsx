@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Download, Send } from "lucide-react";
+import { Mail, Linkedin, Download, Send, Phone, MessageCircle } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", type: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Message sent! Newton will get back to you soon.");
+    window.location.href = `mailto:newtonnyongesa05@gmail.com?subject=${encodeURIComponent(formData.type)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
     setFormData({ name: "", email: "", type: "", message: "" });
   };
 
@@ -31,13 +31,33 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <a href="mailto:newton.wanyama@email.com" className="glass-card p-5 flex items-center gap-4 hover-lift block">
+            <a href="mailto:newtonnyongesa05@gmail.com" className="glass-card p-5 flex items-center gap-4 hover-lift block">
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                 <Mail size={18} />
               </div>
               <div>
                 <p className="text-sm font-medium">Email</p>
-                <p className="text-xs text-muted-foreground">newton.wanyama@email.com</p>
+                <p className="text-xs text-muted-foreground">newtonnyongesa05@gmail.com</p>
+              </div>
+            </a>
+
+            <a href="https://wa.me/254716261793" target="_blank" rel="noopener noreferrer" className="glass-card p-5 flex items-center gap-4 hover-lift block">
+              <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
+                <MessageCircle size={18} />
+              </div>
+              <div>
+                <p className="text-sm font-medium">WhatsApp</p>
+                <p className="text-xs text-muted-foreground">+254 716 261793</p>
+              </div>
+            </a>
+
+            <a href="tel:+254716261793" className="glass-card p-5 flex items-center gap-4 hover-lift block">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                <Phone size={18} />
+              </div>
+              <div>
+                <p className="text-sm font-medium">Phone Call</p>
+                <p className="text-xs text-muted-foreground">+254 716 261793</p>
               </div>
             </a>
 

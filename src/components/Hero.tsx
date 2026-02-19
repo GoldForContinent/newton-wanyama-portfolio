@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download, ImagePlus } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { useTypedText } from "@/hooks/useTypedText";
-import { useState } from "react";
 
 const typedStrings = [
   "Economics & Finance Graduate",
@@ -12,16 +11,7 @@ const typedStrings = [
 
 const Hero = () => {
   const typed = useTypedText(typedStrings);
-  const [heroImage, setHeroImage] = useState<string | null>(null);
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setHeroImage(reader.result as string);
-      reader.readAsDataURL(file);
-    }
-  };
+  const heroImage = "/newtonhero.png";
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
@@ -123,27 +113,13 @@ const Hero = () => {
             className="hidden lg:flex justify-center"
           >
             <div className="relative">
-              {heroImage ? (
-                <div className="w-[380px] h-[460px] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_hsl(38_92%_50%/0.1)]">
-                  <img
-                    src={heroImage}
-                    alt="Newton Wanyama"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ) : (
-                <label className="w-[380px] h-[460px] rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 flex flex-col items-center justify-center cursor-pointer hover:bg-primary/10 hover:border-primary/50 transition-all duration-300">
-                  <ImagePlus size={48} className="text-primary/40 mb-4" />
-                  <span className="text-sm text-muted-foreground font-medium">Click to upload photo</span>
-                  <span className="text-xs text-muted-foreground/60 mt-1">Newton's profile image</span>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                  />
-                </label>
-              )}
+              <div className="w-[380px] h-[460px] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_hsl(38_92%_50%/0.1)]">
+                <img
+                  src={heroImage}
+                  alt="Newton Wanyama"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-primary/20 rounded-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 border border-primary/10 rounded-2xl" />
