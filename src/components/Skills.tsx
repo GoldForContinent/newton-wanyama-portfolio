@@ -3,28 +3,27 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const econSkills = [
-  { name: "Time Series Analysis", pct: 95 },
-  { name: "Vector Error Correction (VECM)", pct: 88 },
-  { name: "Granger Causality", pct: 92 },
-  { name: "ARIMA / SARIMA", pct: 85 },
+  { name: "Financial Modeling & Analysis", pct: 85 },
+  { name: "Econometrics & Time Series", pct: 88 },
+  { name: "Quantitative Analysis", pct: 82 },
+  { name: "Data Research & Interpretation", pct: 90 },
 ];
 
 const tools = [
-  { name: "EViews", size: "text-lg" },
+  { name: "Excel", size: "text-lg" },
+  { name: "EViews", size: "text-base" },
   { name: "Stata", size: "text-base" },
-  { name: "Python", size: "text-lg" },
-  { name: "Excel", size: "text-sm" },
-  { name: "R", size: "text-base" },
   { name: "SPSS", size: "text-sm" },
-  { name: "Power BI", size: "text-base" },
+  { name: "Power BI", size: "text-sm" },
+  { name: "Python", size: "text-sm" },
 ];
 
 const focus = [
-  "Exchange Rate Dynamics (2002–2024)",
-  "Monetary Policy Transmission",
-  "Inflation Modeling",
-  "GDP Forecasting",
-  "Financial Econometrics",
+  "Exchange Rate Dynamics",
+  "Financial Statement Analysis",
+  "Budget Frameworks & Forecasting",
+  "Macroeconomic Indicators",
+  "Risk Assessment & Compliance",
 ];
 
 const SkillBar = ({ name, pct }: { name: string; pct: number }) => {
@@ -59,23 +58,21 @@ const Skills = () => (
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">Methodology & Skills</h2>
-        <p className="text-muted-foreground">Technical toolkit for rigorous economic analysis</p>
+        <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">Technical Skills</h2>
+        <p className="text-muted-foreground">Core competencies and analytical toolkit</p>
       </motion.div>
 
       <div className="grid md:grid-cols-3 gap-6">
-        {/* Econometric Skills */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="glass-card p-6"
         >
-          <h3 className="font-heading font-semibold mb-5">Econometric Skills</h3>
+          <h3 className="font-heading font-semibold mb-5">Core Competencies</h3>
           {econSkills.map(s => <SkillBar key={s.name} {...s} />)}
         </motion.div>
 
-        {/* Software Tools */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +80,7 @@ const Skills = () => (
           transition={{ delay: 0.1 }}
           className="glass-card p-6"
         >
-          <h3 className="font-heading font-semibold mb-5">Software Tools</h3>
+          <h3 className="font-heading font-semibold mb-5">Software & Tools</h3>
           <div className="flex flex-wrap gap-2">
             {tools.map(t => (
               <span
@@ -96,7 +93,6 @@ const Skills = () => (
           </div>
         </motion.div>
 
-        {/* Research Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +100,7 @@ const Skills = () => (
           transition={{ delay: 0.2 }}
           className="glass-card p-6"
         >
-          <h3 className="font-heading font-semibold mb-5">Research Focus</h3>
+          <h3 className="font-heading font-semibold mb-5">Areas of Focus</h3>
           <ul className="space-y-3">
             {focus.map(f => (
               <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">

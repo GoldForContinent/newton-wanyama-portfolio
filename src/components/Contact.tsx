@@ -7,7 +7,6 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Would integrate with backend
     alert("Message sent! Newton will get back to you soon.");
     setFormData({ name: "", email: "", type: "", message: "" });
   };
@@ -22,11 +21,10 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">Let's Connect</h2>
-          <p className="text-muted-foreground">Open to research collaborations, employment opportunities, and consulting</p>
+          <p className="text-muted-foreground">Available for opportunities · Ready to add value from day one</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,19 +56,18 @@ const Contact = () => {
                 <Download size={18} />
               </div>
               <div>
-                <p className="text-sm font-medium">Research Abstract</p>
-                <p className="text-xs text-muted-foreground">Download PDF</p>
+                <p className="text-sm font-medium">Download CV</p>
+                <p className="text-xs text-muted-foreground">Newton Wanyama Resume (PDF)</p>
               </div>
             </button>
 
             <div className="glass-card p-5">
               <p className="text-xs text-muted-foreground">
-                Born 2002 · 23 years old · Fresh perspective, rigorous analysis
+                Kabarak University Graduate · Economics & Finance · Class of 2025 · Second Class Honours
               </p>
             </div>
           </motion.div>
 
-          {/* Form */}
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -109,9 +106,9 @@ const Contact = () => {
                 className="w-full px-4 py-2.5 rounded-lg bg-accent border border-border text-foreground text-sm focus:outline-none focus:border-primary/50 transition-colors"
               >
                 <option value="">Select type</option>
-                <option value="research">Research Collaboration</option>
                 <option value="employment">Employment Opportunity</option>
-                <option value="consulting">Consulting</option>
+                <option value="internship">Internship</option>
+                <option value="collaboration">Collaboration</option>
                 <option value="academic">Academic Discussion</option>
               </select>
             </div>

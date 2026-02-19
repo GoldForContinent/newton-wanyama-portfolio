@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Award, Download, TrendingUp } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const fullData = [
   { year: "2002", exchangeRate: 78.2, gdp: 2.1, inflation: 9.8, interestRate: 18.5 },
@@ -46,12 +46,12 @@ const Research = () => {
         >
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-4">
             <TrendingUp size={14} />
-            Featured Research
+            Academic Research
           </span>
           <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-2">
-            Exchange Rate Volatility & Economic Growth
+            Economic Research Project
           </h2>
-          <p className="text-muted-foreground">Kenya (2002–2024) · 22-Year Longitudinal Study</p>
+          <p className="text-muted-foreground">Academic Research · Macroeconomic Analysis · Econometric Modeling</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8">
@@ -115,30 +115,27 @@ const Research = () => {
             <div className="glass-card p-5 glow-border">
               <div className="flex items-center gap-3 mb-3">
                 <Award className="text-primary" size={20} />
-                <span className="text-sm font-heading font-semibold text-primary">Vice Chancellor's Recognition</span>
+                <span className="text-sm font-heading font-semibold text-primary">Top 10 Researcher</span>
               </div>
-              <p className="text-xs text-muted-foreground">Top 10 Economic Researcher 2024 · Kabarak University</p>
+              <p className="text-xs text-muted-foreground">Vice Chancellor's Recognition · Kabarak University Business Department</p>
             </div>
 
             <div className="glass-card p-5">
-              <h4 className="font-heading font-semibold text-sm mb-3">Research Abstract</h4>
+              <h4 className="font-heading font-semibold text-sm mb-3">Research Summary</h4>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                This study investigates the dynamic relationship between exchange rate volatility and real GDP growth in Kenya over a 22-year period. Using Vector Error Correction Models (VECM) and Granger Causality tests, the research identifies interest rates as the primary transmission channel.
+                <span className="text-foreground font-medium">Challenge:</span> Investigate the relationship between exchange rate fluctuations and economic growth in Kenya over a 22-year period, examining how currency volatility impacts key macroeconomic indicators including interest rates, inflation, and net exports.
               </p>
-              <ul className="space-y-2 text-xs text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <span className="w-1 h-1 mt-1.5 rounded-full bg-primary shrink-0" />
-                  Exchange rate volatility explains 34% of GDP variation
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1 h-1 mt-1.5 rounded-full bg-primary shrink-0" />
-                  Interest rates account for 42% of the transmission effect
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="w-1 h-1 mt-1.5 rounded-full bg-primary shrink-0" />
-                  COVID-19 period showed structural breaks in all models
-                </li>
-              </ul>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                <span className="text-foreground font-medium">Result:</span> Successfully completed comprehensive econometric research analyzing two decades of Kenyan economic data, providing empirical evidence on the causal relationships between exchange rate dynamics and GDP growth.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {["Econometrics", "Time Series Analysis", "Macroeconomic Research", "Data Analysis"].map(tag => (
+                <span key={tag} className="px-3 py-1 rounded-lg border border-border bg-accent/50 text-foreground text-xs">
+                  {tag}
+                </span>
+              ))}
             </div>
 
             <button className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:brightness-110 transition-all">

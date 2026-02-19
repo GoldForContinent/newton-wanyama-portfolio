@@ -1,26 +1,27 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown, Download, ImagePlus } from "lucide-react";
 import { useTypedText } from "@/hooks/useTypedText";
-import MiniChart from "./MiniChart";
+import { useState } from "react";
 
 const typedStrings = [
-  "Econometrician",
-  "Macroeconomic Analyst",
-  "Time Series Specialist",
-  "Born 2002",
-  "Top 10 Researcher",
-];
-
-const timelineEvents = [
-  { year: "2002", label: "Born" },
-  { year: "2008", label: "Primary School" },
-  { year: "2016", label: "Secondary" },
-  { year: "2021", label: "Kabarak University" },
-  { year: "2024", label: "Top Research Award" },
+  "Economics & Finance Graduate",
+  "Kabarak University Alumni",
+  "Quantitative Analyst",
+  "Finance Professional",
 ];
 
 const Hero = () => {
   const typed = useTypedText(typedStrings);
+  const [heroImage, setHeroImage] = useState<string | null>(null);
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => setHeroImage(reader.result as string);
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
@@ -75,8 +76,8 @@ const Hero = () => {
             </div>
 
             <p className="text-muted-foreground leading-relaxed max-w-lg mb-8">
-              A fresh economic mind analyzing the Kenya I grew up in (2002–2024). 
-              My research examines exchange rate fluctuations that shaped my generation's economic reality.
+              Economics and Finance graduate from Kabarak University with a passion for quantitative analysis, 
+              financial modeling, and economic research. Ready to add value from day one.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -84,7 +85,7 @@ const Hero = () => {
                 href="#research"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:brightness-110 transition-all duration-300"
               >
-                Explore Research
+                View Portfolio
                 <ArrowDown size={16} />
               </a>
               <a
@@ -95,43 +96,60 @@ const Hero = () => {
                 Download CV
               </a>
             </div>
+
+            <div className="flex items-center gap-6 mt-8">
+              <div className="text-center">
+                <span className="text-2xl font-heading font-bold text-foreground">4+</span>
+                <p className="text-[10px] text-muted-foreground">Years of Study</p>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div className="text-center">
+                <span className="text-2xl font-heading font-bold text-foreground">1</span>
+                <p className="text-[10px] text-muted-foreground">Research Project</p>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div className="text-center">
+                <span className="text-2xl font-heading font-bold text-foreground">Top 10</span>
+                <p className="text-[10px] text-muted-foreground">Researcher</p>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right - mini chart */}
+          {/* Right - Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+            className="hidden lg:flex justify-center"
           >
-            <div className="glass-card p-6">
-              <h3 className="text-sm font-heading font-medium text-muted-foreground mb-1">KES/USD Exchange Rate</h3>
-              <p className="text-xs text-muted-foreground/70 mb-4">2002 – 2024 · Newton's Lifetime</p>
-              <MiniChart />
+            <div className="relative">
+              {heroImage ? (
+                <div className="w-[380px] h-[460px] rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_hsl(38_92%_50%/0.1)]">
+                  <img
+                    src={heroImage}
+                    alt="Newton Wanyama"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <label className="w-[380px] h-[460px] rounded-2xl border-2 border-dashed border-primary/30 bg-primary/5 flex flex-col items-center justify-center cursor-pointer hover:bg-primary/10 hover:border-primary/50 transition-all duration-300">
+                  <ImagePlus size={48} className="text-primary/40 mb-4" />
+                  <span className="text-sm text-muted-foreground font-medium">Click to upload photo</span>
+                  <span className="text-xs text-muted-foreground/60 mt-1">Newton's profile image</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+                </label>
+              )}
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 border border-primary/20 rounded-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 border border-primary/10 rounded-2xl" />
             </div>
           </motion.div>
         </div>
-
-        {/* Timeline strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mt-16 lg:mt-24"
-        >
-          <div className="relative">
-            <div className="absolute top-3 left-0 right-0 h-px bg-border" />
-            <div className="flex justify-between overflow-x-auto pb-2">
-              {timelineEvents.map((evt, i) => (
-                <div key={i} className="flex flex-col items-center min-w-[100px]">
-                  <div className="w-2.5 h-2.5 rounded-full bg-primary border-2 border-background z-10 mb-2" />
-                  <span className="text-xs font-heading font-semibold text-primary">{evt.year}</span>
-                  <span className="text-[10px] text-muted-foreground text-center">{evt.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
