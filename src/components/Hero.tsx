@@ -79,7 +79,9 @@ const Hero = () => {
                 <ArrowDown size={16} />
               </a>
               <a
-                href="#connect"
+                href="/Newton_Wanyama_CV.docx"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-accent transition-all duration-300"
               >
                 <Download size={16} />
@@ -123,6 +125,27 @@ const Hero = () => {
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-primary/20 rounded-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 border border-primary/10 rounded-2xl" />
+            </div>
+          </motion.div>
+
+          {/* Mobile Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="lg:hidden flex justify-center mt-8 mb-8"
+          >
+            <div className="relative w-[280px] h-[340px]">
+              <div className="w-full h-full rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_40px_hsl(38_92%_50%/0.1)]">
+                <img
+                  src={heroImage}
+                  alt="Newton Wanyama"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -top-2 -right-2 w-16 h-16 border border-primary/20 rounded-2xl" />
+              <div className="absolute -bottom-2 -left-2 w-20 h-20 border border-primary/10 rounded-2xl" />
             </div>
           </motion.div>
         </div>

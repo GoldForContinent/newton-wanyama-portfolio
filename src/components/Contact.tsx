@@ -1,14 +1,29 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Linkedin, Download, Send, Phone, MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Linkedin, Download, Send, Phone, MessageCircle, Check, X } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", type: "", message: "" });
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:newtonnyongesa05@gmail.com?subject=${encodeURIComponent(formData.type)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    
+    // Create email content
+    const subject = encodeURIComponent(`New Contact: ${formData.type}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nInquiry Type: ${formData.type}\n\nMessage:\n${formData.message}`);
+    
+    // Open email client
+    window.location.href = `mailto:newtonnyongesa05@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success popup
+    setShowSuccess(true);
+    
+    // Reset form
     setFormData({ name: "", email: "", type: "", message: "" });
+    
+    // Hide popup after 5 seconds
+    setTimeout(() => setShowSuccess(false), 5000);
   };
 
   return (
@@ -153,6 +168,52 @@ const Contact = () => {
           </motion.form>
         </div>
       </div>
+
+      {/* Success Popup */}
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="bg-background border border-border rounded-lg p-6 max-w-sm w-full shadow-xl"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
+                    <Check className="text-green-500" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground">Message Received!</h3>
+                    <p className="text-sm text-muted-foreground">I'll get back to you soon</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowSuccess(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <div className="text-center">
+                <p className="text-xs text-muted-foreground">
+                  Your message has been sent to Newton Wanyama
+                </p>
+                <p className="text-xs text-primary font-medium mt-1">
+                  newtonnyongesa05@gmail.com
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

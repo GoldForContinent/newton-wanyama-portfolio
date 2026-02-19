@@ -66,8 +66,12 @@ const About = () => (
           <div className="glass-card glow-border p-6 text-center w-full max-w-[280px]">
             <div className="text-xs text-primary font-heading font-semibold uppercase tracking-wider mb-1">Kabarak University Graduate</div>
             <p className="text-[10px] text-muted-foreground mb-4">School of Business & Economics</p>
-            <div className="w-24 h-24 rounded-full bg-accent mx-auto mb-4 flex items-center justify-center text-3xl font-heading font-bold text-primary">
-              NW
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-primary/20 mx-auto mb-4">
+              <img
+                src="/newtonhero.png"
+                alt="Newton Wanyama"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h4 className="font-heading font-semibold">Newton Wanyama</h4>
             <p className="text-xs text-muted-foreground">Economics & Finance</p>
